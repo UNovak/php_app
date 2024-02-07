@@ -19,6 +19,11 @@
                 <xsl:value-of select="task" />
               </span>
 
+              <form action="../functions/done.php" method="post" style="display:inline;">
+                <input type="hidden" name="todo_id" value="{id}" />
+                <button type="submit">Completed</button>
+              </form>
+
               <form action="../functions/delete.php" method="post" style="display:inline;">
                 <input type="hidden" name="todo_id" value="{id}" />
                 <button type="submit">Delete</button>
