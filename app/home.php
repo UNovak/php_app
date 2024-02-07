@@ -38,12 +38,15 @@ $html = $xslt->transformToXML($xml);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css" />
   <title>Todo list</title>
 </head>
 
 <body>
-  <h1>Hello, <?php echo isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest'; ?></h1>
-  <a href="./functions/logout.php">Logout</a>
+  <div class="greeting">
+    <h1>Hello, <?php echo isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest'; ?></h1>
+    <a class="logout" href="./functions/logout.php">Logout</a>
+  </div>
 
   <!-- Display transformed HTML -->
   <?php echo $html; ?>
@@ -53,7 +56,6 @@ $html = $xslt->transformToXML($xml);
     <input type="text" name="task" required>
     <button type="submit">Add Todo</button>
   </form>
-
 </body>
 
 </html>

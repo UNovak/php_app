@@ -52,26 +52,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
+    <link rel="stylesheet" href="../style.css" />
   </head>
 
   <body>
-    <h2>Registration</h2>
-    <?php if (isset($_GET['error'])) { ?>
-      <p style="color: red;"><?php echo $_GET['error']; ?></p>
-    <?php } ?>
-    <form action="register.php" method="post">
-      <label for="name">Name:</label>
-      <input type="text" name="name" placeholder="name" required><br>
+    <div class="form-container">
+      <h2>Registration</h2>
+      <?php if (isset($_GET['error'])) { ?>
+        <p style="color: red;"><?php echo $_GET['error']; ?></p>
+      <?php } ?>
+      <form action="register.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="name" required><br>
 
-      <label for="username">Username:</label>
-      <input type="text" name="username" required><br>
+        <label for="username">Username:</label>
+        <input type="text" name="username" required><br>
 
-      <label for="password">Password:</label>
-      <input type="password" name="password" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required><br>
 
-      <button type="submit">Register</button>
-    </form>
-    <button onClick="goHome()">Go to login</button>
+        <button type="submit">Register</button>
+      </form>
+      <button onClick="goHome()" style="margin-top:10px">Go to login</button>
+    </div>
     <script>
       function goHome() {
         window.location.href = '../index.php'
