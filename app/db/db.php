@@ -1,7 +1,7 @@
 <?php
 $host = 'db';  // Use the container name
 $username = 'root';
-$password = 'password';
+$password = '';
 $database = 'php_todo';
 
 $conn = mysqli_connect($host, $username, $password, $database);
