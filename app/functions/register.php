@@ -71,6 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       <button type="submit">Register</button>
     </form>
+    <button onClick="goHome()">Go to login</button>
+    <script>
+      function goHome() {
+        window.location.href = '../index.php'
+      }
+    </script>
   </body>
 
   </html>
