@@ -7,11 +7,6 @@
     <html>
       <head>
         <title>Todo List</title>
-        <style>
-          .completed {
-          text-decoration: line-through;
-          }
-        </style>
       </head>
       <body>
         <h2>Your Todos</h2>
