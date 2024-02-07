@@ -24,6 +24,11 @@
                 <button type="submit">Completed</button>
               </form>
 
+              <form action="../functions/undo.php" method="post" style="display:inline;">
+                <input type="hidden" name="todo_id" value="{id}" />
+                <button type="submit">Uncomplete</button>
+              </form>
+
               <form action="../functions/delete.php" method="post" style="display:inline;">
                 <input type="hidden" name="todo_id" value="{id}" />
                 <button type="submit">Delete</button>
