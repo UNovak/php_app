@@ -1,0 +1,40 @@
+version: '3' # docker version
+services:
+  db: 
+    image: mysql:latest
+    env_file:
+    - .env
+    container_name: db
+    networks:
+    - php_network
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    volumes:
+      - "./app/db:/docker-entrypoint-initdb.d" # persist the database after container stops
+  www:
+    image: php:apache
+    container_name: php
+    networks:
+    - php_network
+    volumes:
+    - "./app:/var/www/html" # sync the current dir on local machine to the dir of container
+    ports:
+      - 80:80
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: php_admin
+    networks:
+    - php_network
+    ports:
+      - 8001:80
+    environment:
+      - PMA_HOST=db
+      - PMA_PORT=3306
+  
+networks:
+  php_network:
+    driver: bridge
